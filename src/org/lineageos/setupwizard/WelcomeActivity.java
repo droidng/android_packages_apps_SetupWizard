@@ -20,7 +20,10 @@ package org.lineageos.setupwizard;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
+import com.google.android.setupcompat.template.FooterButtonStyleUtils;
 import com.google.android.setupcompat.util.SystemBarHelper;
 
 public class WelcomeActivity extends BaseSetupWizardActivity {
@@ -36,11 +39,19 @@ public class WelcomeActivity extends BaseSetupWizardActivity {
         mRootView = findViewById(R.id.setup_wizard_layout);
         setNextText(R.string.start);
         setSkipText(R.string.emergency_call);
-        findViewById(R.id.start).setOnClickListener(view -> onNextPressed());
-        findViewById(R.id.emerg_dialer)
-                .setOnClickListener(view -> startEmergencyDialer());
+        Button startButton = findViewById(R.id.start);
+        Button emergButton = findViewById(R.id.emerg_dialer);
+        startButton.setOnClickListener(view -> onNextPressed());
+        emergButton.setOnClickListener(view -> startEmergencyDialer());
         findViewById(R.id.launch_accessibility)
                 .setOnClickListener(view -> startAccessibilitySettings());
+
+        FooterButtonStyleUtils.applyPrimaryButtonPartnerResource(this, startButton, true);
+        FooterButtonStyleUtils.applySecondaryButtonPartnerResource(this, emergButton, true);
+
+        TextView welcomeTitle = findViewById(R.id.welcome_title);
+        welcomeTitle.setText(getString(R.string.setup_welcome_message,
+                getString(R.string.os_name)));
     }
 
     @Override
