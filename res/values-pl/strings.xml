@@ -47,7 +47,7 @@
     <string name="no">Nie</string>
     <string name="yes">Tak</string>
     <string name="emergency_call">Połączenie alarmowe</string>
-    <string name="setup_services">Funkcje Materium</string>
+    <string name="setup_services">Funkcje droid-ng</string>
     <string name="services_help_improve_cm">Pomóż ulepszyć <xliff:g id="name" example="LineageOS">%s</xliff:g></string>
     <string name="services_os_nav_keys_label"><b>Użyj ekranowych przycisków nawigacyjnych</b> zamiast klawiszy sprzętowych.</string>
     <string name="settings_biometric_setup_title">Wybierz zapasową opcję blokady ekranu</string>
