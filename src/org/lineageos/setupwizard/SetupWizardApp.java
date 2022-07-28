@@ -63,6 +63,8 @@ public class SetupWizardApp extends Application {
     public static final String KEY_SEND_METRICS = "send_metrics";
     public static final String DISABLE_NAV_KEYS = "disable_nav_keys";
     public static final String ENABLE_RECOVERY_UPDATE = "enable_recovery_update";
+    public static final String GAPPS_CONFIG = "gapps_config";
+    public static final String GAPPS_CONFIG_PROP = "persist.gms_feature";
     public static final String UPDATE_RECOVERY_PROP = "persist.vendor.recovery_update";
 
     public static final String NAVIGATION_OPTION_KEY = "navigation_option";

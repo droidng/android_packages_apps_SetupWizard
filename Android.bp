@@ -36,6 +36,7 @@ android_app {
         "setupcompat",
         "setupdesign",
         "org.lineageos.platform.internal",
+        "org.eu.droid_ng.platform.internal",
     ],
 
     libs: ["telephony-common"],

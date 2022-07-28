@@ -26,6 +26,8 @@ import static org.lineageos.setupwizard.Manifest.permission.FINISH_SETUP;
 import static org.lineageos.setupwizard.SetupWizardApp.ACTION_SETUP_COMPLETE;
 import static org.lineageos.setupwizard.SetupWizardApp.DISABLE_NAV_KEYS;
 import static org.lineageos.setupwizard.SetupWizardApp.ENABLE_RECOVERY_UPDATE;
+import static org.lineageos.setupwizard.SetupWizardApp.GAPPS_CONFIG;
+import static org.lineageos.setupwizard.SetupWizardApp.GAPPS_CONFIG_PROP;
 import static org.lineageos.setupwizard.SetupWizardApp.KEY_SEND_METRICS;
 import static org.lineageos.setupwizard.SetupWizardApp.LOGV;
 import static org.lineageos.setupwizard.SetupWizardApp.NAVIGATION_OPTION_KEY;
@@ -178,6 +180,7 @@ public class FinishActivity extends BaseSetupWizardActivity {
         handleEnableMetrics(mSetupWizardApp);
         handleNavKeys(mSetupWizardApp);
         handleRecoveryUpdate(mSetupWizardApp);
+        handleGappsConfig(mSetupWizardApp);
         handleNavigationOption(mSetupWizardApp);
         final WallpaperManager wallpaperManager =
                 WallpaperManager.getInstance(mSetupWizardApp);
@@ -204,6 +207,15 @@ public class FinishActivity extends BaseSetupWizardActivity {
         if (setupWizardApp.getSettingsBundle().containsKey(DISABLE_NAV_KEYS)) {
             writeDisableNavkeysOption(setupWizardApp,
                     setupWizardApp.getSettingsBundle().getBoolean(DISABLE_NAV_KEYS));
+        }
+    }
+
+    private static void handleGappsConfig(SetupWizardApp setupWizardApp) {
+        if (setupWizardApp.getSettingsBundle().containsKey(GAPPS_CONFIG)) {
+            int val = setupWizardApp.getSettingsBundle()
+                    .getInt(GAPPS_CONFIG);
+
+            SystemProperties.set(GAPPS_CONFIG_PROP, String.valueOf(val));
         }
     }
 
